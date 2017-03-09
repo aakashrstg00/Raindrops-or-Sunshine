@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather : Sunshine or Raindrops</title>
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../libs/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/model.js"></script>
+    <script src="../js/controller.js"></script>
+</head>
+
+<body ng-app="citymodule" ng-controller="citycontroller">
+    <label for="">Select your city</label>
+    <select ng-model="cityId">
+        <option value="28.7041,77.1025">Delhi</option>
+        <option value="22.57,88.36">Kolkata</option>
+        <option value="12.97,77.59">Bangalore</option>
+        <option value="13.08,80.27">Chennai</option>
+        <option value="19.07,72.87">Mumbai</option>
+    </select>
+    <button ng-click="searchByCid()">Check</button>
+    <div>
+        <ul>
+            <li>City :: </li>
+            <li>Lattitude :: {{result.latitude}}</li>
+            <li>Longitude :: {{result.longitude}}</li>
+            <li>Temperature :: {{tempincelsius}}</li>
+            <li>Humidity :: {{result.currently.humidity}}</li>
+            <li>Wind Speed :: {{result.currently.windSpeed}} kmph</li>
+            <li>Visibility :: {{result.currently.visibility}} m</li>
+            <li>Summary :: {{result.currently.summary}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<!--result.results[0].geometry.location.lat result.results[0].geometry.location.lng-->
